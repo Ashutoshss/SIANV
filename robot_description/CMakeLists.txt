@@ -32,6 +32,7 @@ install(
   DIRECTORY
     launch
     meshes
+    models
   DESTINATION
     share/${PROJECT_NAME}/
 )
