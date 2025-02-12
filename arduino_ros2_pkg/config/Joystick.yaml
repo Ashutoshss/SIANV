@@ -1,0 +1,16 @@
+teleop_twist_joy:
+  ros__parameters:
+    enable_button: 5  # Index of the button to enable teleoperation
+    axis_linear:
+      x: 3  # Index of the joystick axis to control linear.x (usually the right stick vertical axis)
+    axis_angular:
+      yaw: -1  # Disable yaw control
+      pitch: -1  # Disable pitch control
+      roll: -1  # Disable roll control
+    scale_linear:
+      x: 1.0  # Scale for linear.x
+    scale_angular:
+      yaw: 0.0  # No scaling for yaw
+      pitch: 0.0  # No scaling for pitch
+      roll: 0.0  # No scaling for roll
+    deadzone: 0.05  # Deadzone for joystick inputs

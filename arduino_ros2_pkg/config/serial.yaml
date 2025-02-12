@@ -1,0 +1,7 @@
+arduino_control_driver:
+  ros__parameters:
+    serial_port: "/dev/ttyACM0"     # Serial port device
+    baud_rate: 115200               # Baud rate
+    wheel_separation: 0.2           # Distance between wheels (meters)
+    min_pwm: 0                      # Minimum PWM value
+    max_pwm: 255                    # Maximum PWM value

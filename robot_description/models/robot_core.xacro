@@ -22,7 +22,7 @@
                 <box size="0.4 0.3 0.15"/>
             </geometry>
             <material name="gray">
-                <color rgba="0.5 0.5 0.5 1"/> <!-- Medium gray with full opacity -->
+                <color rgba="0.5 0.5 0.5 1"/> 
             </material>
         </visual>
         <collision>
@@ -51,7 +51,7 @@
                 <cylinder radius="0.05" length="0.02"/>
             </geometry>
             <material name="black">
-                <color rgba="0 0 0 1"/> <!-- black with full opacity -->
+                <color rgba="0 0 0 1"/> 
             </material>
         </visual>
         <collision>
@@ -80,7 +80,7 @@
                 <cylinder radius="0.05" length="0.02"/>
             </geometry>
             <material name="black">
-                <color rgba="0 0 0 1"/> <!-- black with full opacity -->
+                <color rgba="0 0 0 1"/> 
             </material>
         </visual>
         <collision>
@@ -107,7 +107,7 @@
                 <sphere radius="0.05"/>
             </geometry>
             <material name="black">
-                <color rgba="0 0 0 1"/> <!-- black with full opacity -->
+                <color rgba="0 0 0 1"/> 
             </material>
         </visual>
         <collision>
@@ -119,5 +119,34 @@
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </xacro:inertial_sphere>
     </link>
+
+        <!-- LiDAR -->
+    <joint name="lidar_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="lidar_link"/>
+        <origin xyz="0 0 0.17" rpy="0 0 0"/> 
+    </joint>
+
+    <link name="lidar_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/> 
+            <geometry>
+            <mesh filename="package://robot_description/meshes/YdlidarX2.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0 0 1 1"/> 
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.05" length="0.03"/> 
+            </geometry>
+        </collision>
+        <xacro:inertial_cylinder mass="0.2" radius="0.05" length="0.03">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
 
 </robot>

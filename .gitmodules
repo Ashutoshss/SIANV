@@ -1,3 +1,6 @@
 [submodule "ydlidar_ros2_driver"]
 	path = ydlidar_ros2_driver
 	url = https://github.com/Ashutoshss/Yd-LidarX2.git
+[submodule "serial"]
+	path = serial
+	url = https://github.com/wjwwood/serial.git
