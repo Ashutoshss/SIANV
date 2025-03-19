@@ -49,5 +49,5 @@ def generate_launch_description():
             description='Use simulation time if true'
         ),
         robot_state_publisher,
-        rviz_node  
+        # rviz_node  
     ])

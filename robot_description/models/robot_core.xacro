@@ -7,6 +7,12 @@
 
     <link name="base_link"></link>
 
+    <!-- <joint name="base_footprint" type="fixed">
+        <parent link="base_link"/>
+        <child link="base_footprint"/>
+        <origin xyz="0 0 0"/>
+    </joint> -->
+
     <!-- CHASSIS LINK -->
 
     <joint name="chassis_joint" type ="fixed">

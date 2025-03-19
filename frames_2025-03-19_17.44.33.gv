@@ -1,0 +1,12 @@
+digraph G {
+"base_link" -> "laser_frame"[label=" Broadcaster: Authority undetectable\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"odom" -> "base_link"[label=" Broadcaster: Authority undetectable\nAverage rate: 200.073\nBuffer length: 10.001\nMost recent transform: 1742386473.386797\nOldest transform: 1742386463.385433\n"];
+"chassis" -> "caster_wheel"[label=" Broadcaster: Authority undetectable\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_link" -> "chassis"[label=" Broadcaster: Authority undetectable\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_link" -> "lidar_link"[label=" Broadcaster: Authority undetectable\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"map" -> "odom"[label=" Broadcaster: Authority undetectable\nAverage rate: 200.073\nBuffer length: 10.001\nMost recent transform: 1742386473.386797\nOldest transform: 1742386463.385433\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1742386473.4016213"[ shape=plaintext ] ;
+}->"map";
+}

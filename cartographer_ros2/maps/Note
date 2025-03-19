@@ -1,0 +1,4 @@
+Cartographer saves maps as .pbstream files
+and Nav2 requires a .pgm + .yaml
+so this package(cartographer_ros2) contain maps in .pbstream
+where as package(nav2_bringup) contain maps in .pgm 
