@@ -10,11 +10,11 @@ def generate_launch_description():
         get_package_share_directory('cartographer_ros2'), 'config'
     )
     configuration_basename = 'cartographer_localization_config.lua'
-    pbstream_file = os.path.join(cartographer_config_dir,"maps","map.pbstream")
+    pbstream_file = os.path.join(cartographer_config_dir, "maps", "map.pbstream")
+
     return LaunchDescription([
         DeclareLaunchArgument("use_sim_time", default_value="false", description="Use simulation time if true"),
-        
-        # Start Cartographer Node for Localization
+
         Node(
             package="cartographer_ros",
             executable="cartographer_node",
@@ -30,6 +30,7 @@ def generate_launch_description():
             ],
             remappings=[('scan', '/scan')]
         ),
+
         Node(
             package='cartographer_ros',
             executable='cartographer_occupancy_grid_node',
@@ -38,5 +39,8 @@ def generate_launch_description():
             parameters=[{
                 'resolution': 0.05,
             }],
+            remappings=[
+                ('/map', '/carto_map')  
+            ],
         ),
     ])

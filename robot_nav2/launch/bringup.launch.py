@@ -8,13 +8,14 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
-    nav2_params = LaunchConfiguration('nav2_params')
+    nav2_params = LaunchConfiguration('params_file')
     map_file = LaunchConfiguration('map')
+
     rviz_config_file = os.path.join(
-        get_package_share_directory('robot_nav2'), 'rviz', 'rviz2_config.rviz')
-    
+        get_package_share_directory('robot_nav2'), 'rviz', 'nav2_default_view.rviz')
+
     declare_nav2_params_cmd = DeclareLaunchArgument(
-        'nav2_params',
+        'params_file',
         default_value='/home/singh/robot_ws/src/robot_nav2/params/nav2_params.yaml',
         description='Path to the navigation parameters file')
 
@@ -27,11 +28,13 @@ def generate_launch_description():
         PythonLaunchDescriptionSource([
             FindPackageShare("nav2_bringup"), "/launch", "/bringup_launch.py"
         ]),
-        launch_arguments={
-            'params_file': nav2_params,
-            'map': map_file
-        }.items(),
+        launch_arguments=[
+            ('params_file', nav2_params),
+            ('map', map_file),
+            ('use_sim_time', 'false')  
+        ],
     )
+
     start_rviz_cmd = Node(
         package='rviz2',
         executable='rviz2',
@@ -39,7 +42,6 @@ def generate_launch_description():
         arguments=['-d', rviz_config_file],
         output='screen')
 
-    
     return LaunchDescription([
         declare_nav2_params_cmd,
         declare_map_cmd,

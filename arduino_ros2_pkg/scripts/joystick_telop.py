@@ -37,7 +37,7 @@ class Joystick(Node):
         if msg.buttons[5] == 1:
             self.scale_angular +=0.5
         if msg.buttons[7] == 1:
-            self.scale_angular +=0.5
+            self.scale_angular -=0.5
         twist = Twist()
         twist.linear.x = msg.axes[1] * self.scale_linear
         twist.angular.z = msg.axes[2] * self.scale_angular
