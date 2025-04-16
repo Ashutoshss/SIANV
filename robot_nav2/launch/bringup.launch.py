@@ -21,7 +21,7 @@ def generate_launch_description():
 
     declare_map_cmd = DeclareLaunchArgument(
         'map',
-        default_value='/home/singh/robot_ws/src/robot_nav2/maps/map.yaml',
+        default_value='/home/singh/robot_ws/src/robot_nav2/maps/home.yaml',
         description='Path to the map file')
 
     nav2_launch = IncludeLaunchDescription(
@@ -43,8 +43,8 @@ def generate_launch_description():
         output='screen')
 
     return LaunchDescription([
-        declare_nav2_params_cmd,
-        declare_map_cmd,
-        nav2_launch,
+        # declare_nav2_params_cmd,
+        # declare_map_cmd,
+        # nav2_launch,
         start_rviz_cmd
     ])

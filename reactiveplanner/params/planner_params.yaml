@@ -1,0 +1,7 @@
+planner:
+  ros__parameters:
+    safe_distance: 0.5  # Distance to keep from obstacles in meters
+    xy_tolerance: 0.03  # Tolerance for reaching the target position
+    yaw_tolerance: 0.1  # Tolerance for the robot's orientation in radians
+    angular_speed: 1.0  # Default angular speed
+    linear_speed: 0.2   # Default linear speed

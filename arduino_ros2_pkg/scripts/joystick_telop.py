@@ -1,4 +1,5 @@
 #! /usr/bin/env python3
+
 import rclpy
 import sys
 from rclpy.node import Node
@@ -30,14 +31,14 @@ class Joystick(Node):
             self.reset()
 
         if msg.buttons[4] == 1:
-            self.scale_linear +=0.5
+            self.scale_linear +=0.01
         if msg.buttons[6] == 1:
-            self.scale_linear -=0.5
+            self.scale_linear -=0.01
 
         if msg.buttons[5] == 1:
-            self.scale_angular +=0.5
+            self.scale_angular +=0.01
         if msg.buttons[7] == 1:
-            self.scale_angular -=0.5
+            self.scale_angular -=0.01
         twist = Twist()
         twist.linear.x = msg.axes[1] * self.scale_linear
         twist.angular.z = msg.axes[2] * self.scale_angular

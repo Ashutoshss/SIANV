@@ -30,6 +30,13 @@ def generate_launch_description():
         parameters=[params]
     )
 
+    joint_state_publisher_ = Node(
+            package='robot_description',
+            executable='joint_publisher',
+            name='joint_publisher',
+            output='screen'
+        )
+
     #path od the rviz2----> '/home/ashutosh/.rviz2/default.rviz'
     rviz_file_name = "default.rviz"  # Ensure this file exists in your package or absolute path
     rviz_config_file = os.path.join(pkg_path, 'rviz', rviz_file_name)  # Adjust path as needed
@@ -49,5 +56,6 @@ def generate_launch_description():
             description='Use simulation time if true'
         ),
         robot_state_publisher,
+        # joint_state_publisher_
         # rviz_node  
     ])

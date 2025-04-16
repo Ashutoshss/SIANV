@@ -33,7 +33,13 @@ def generate_launch_description():
         Node(
             package='arduino_ros2_pkg',
             executable='ros2_control',
-            name='ros2_control',
+            name='ros2_control_node',
+            output='screen'
+        ),
+        Node(
+            package='joy',
+            executable='joy_node',
+            name='joy_node',
             output='screen'
         ),
     ])
